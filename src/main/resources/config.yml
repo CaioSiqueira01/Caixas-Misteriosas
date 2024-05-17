@@ -1,0 +1,10 @@
+# Este plugin não possui configurações!
+#
+# Comandos:
+# /caixas - Mostra a lista de caixas.
+# /criarcaixa <id> - Cria uma caixa.
+# /delcaixa <id> - Deleta uma caixa.
+# /editarcaixa <id> - Edita uma caixa.
+# /givecaixa <id> - Pega uma caixa.
+#
+# caixas.admin  - Permissão para poder usar todos os comandos.

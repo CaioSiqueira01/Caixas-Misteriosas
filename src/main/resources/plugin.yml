@@ -1,0 +1,31 @@
+name: CaixasMisteriosas
+version: '${project.version}'
+main: br.com.caio.caixasmisteriosas.CaixasMisteriosas
+api-version: '1.20'
+
+commands:
+  caixas:
+    description: Mostra a lista de caixas.
+    aliases: []
+    permission: caixas.admin
+    permission-message: "§cVocê não tem permissão para utilizar este comando."
+  criarcaixa:
+    description: Cria uma caixa.
+    aliases: []
+    permission: caixas.admin
+    permission-message: "§cVocê não tem permissão para utilizar este comando."
+  delcaixa:
+    description: Deleta uma caixa criada.
+    aliases: []
+    permission: caixas.admin
+    permission-message: "§cVocê não tem permissão para utilizar este comando."
+  editarcaixa:
+    description: Edita uma caixa criada.
+    aliases: []
+    permission: caixas.admin
+    permission-message: "§cVocê não tem permissão para utilizar este comando."
+  givecaixa:
+    description: Pega uma caixa.
+    aliases: [caixa]
+    permission: caixas.admin
+    permission-message: "§cVocê não tem permissão para utilizar este comando."
