@@ -54,5 +54,3 @@ public class CaixasMisteriosas extends JavaPlugin implements Listener {
         getCommand("criarcaixa").setExecutor(new ComandoCriarCaixa());
     }
 }
-
-

@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
 
 import br.com.caio.caixasmisteriosas.utils.DataManager;
+
 public class ComandoDelCaixa implements Listener, CommandExecutor {
     public boolean onCommand(CommandSender s, Command cmd, String lbl, String[] args) {
         if (cmd.getName().equalsIgnoreCase("delcaixa")) {

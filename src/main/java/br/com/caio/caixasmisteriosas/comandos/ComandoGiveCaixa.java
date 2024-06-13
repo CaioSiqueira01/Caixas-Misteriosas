@@ -15,6 +15,7 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import br.com.caio.caixasmisteriosas.utils.DataManager;
+
 public class ComandoGiveCaixa implements Listener, CommandExecutor {
 
     @SuppressWarnings("deprecation")

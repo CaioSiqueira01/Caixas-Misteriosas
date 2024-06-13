@@ -65,7 +65,7 @@ public class AbrirCaixa implements Listener {
         }
 
         Inventory inv = Bukkit.createInventory(null, 45, "§0ABRINDO CAIXA!");
-        inv.setItem(22, config.getItemStack("Itens.0"));
+        inv.setItem(22, config.getItemStack("Itens.0.Item"));
         p.openInventory(inv);
         goTask(inv, p, config, nitens);
     }
@@ -84,12 +84,33 @@ public class AbrirCaixa implements Listener {
                     p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
                     inv.setItem(slot1, getRandomGlassPane(rnd));
                     inv.setItem(slot2, getRandomGlassPane(rnd));
-                    inv.setItem(22, config.getItemStack("Itens." + rnd.nextInt(nitens)));
+                    inv.setItem(22, getRandomItem(config, nitens));
                     slot1++;
                     slot2--;
                 }
             }
         }.runTaskTimer(CaixasMisteriosas.getInstance(), 0L, 5L);
+    }
+
+    private ItemStack getRandomItem(FileConfiguration config, int nitens) {
+        Random rnd = new Random();
+        double totalProbabilidade = 0;
+
+        for (int i = 0; i < nitens; i++) {
+            totalProbabilidade += config.getDouble("Itens." + i + ".Probabilidade");
+        }
+
+        double rand = rnd.nextDouble() * totalProbabilidade;
+        double current = 0;
+
+        for (int i = 0; i < nitens; i++) {
+            current += config.getDouble("Itens." + i + ".Probabilidade");
+            if (current >= rand) {
+                return config.getItemStack("Itens." + i + ".Item");
+            }
+        }
+
+        return null;
     }
 
     private void finalizarCaixa(Player p, Inventory inv) {

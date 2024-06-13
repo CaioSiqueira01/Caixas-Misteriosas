@@ -48,12 +48,13 @@ public class ComandosListener implements Listener {
                 return;
             }
 
-            if (title.contains("§0Editar Icone §n")) {
+            if (title.contains("§0Icone da Caixa §n")) { // Alterado para "Icone da Caixa §n"
                 editarCaixaIcone(inv, p);
                 return;
             }
         }
     }
+
     private void criarCaixa(Inventory inv, Player p) {
         ItemStack[] itens = inv.getContents();
         int j = 0;
@@ -72,7 +73,8 @@ public class ComandosListener implements Listener {
         config.createSection("Itens");
         for (ItemStack item : itens) {
             if (item == null) continue;
-            config.set("Itens." + j, item);
+            config.set("Itens." + j + ".Item", item);
+            config.set("Itens." + j + ".Probabilidade", 1.0 / (j + 1)); // Ajuste conforme necessário
             j++;
         }
         try {
@@ -96,7 +98,8 @@ public class ComandosListener implements Listener {
         config.createSection("Itens");
         for (ItemStack item : itens) {
             if (item == null) continue;
-            config.set("Itens." + j, item);
+            config.set("Itens." + j + ".Item", item);
+            config.set("Itens." + j + ".Probabilidade", 1.0 / (j + 1)); // Ajuste conforme necessário
             j++;
         }
         try {
@@ -110,7 +113,7 @@ public class ComandosListener implements Listener {
 
     private void editarCaixaIcone(Inventory inv, Player p) {
         InventoryView view = p.getOpenInventory();
-        String title = view.getTitle(); // Alteração aqui
+        String title = view.getTitle();
         String caixa = title.substring(19);
         File file = DataManager.getListFiles(caixa, "caixas");
         FileConfiguration config = DataManager.getConfiguration(file);

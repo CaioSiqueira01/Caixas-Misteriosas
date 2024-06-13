@@ -9,8 +9,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 import br.com.caio.caixasmisteriosas.utils.DataManager;
+
 public class ComandoCriarCaixa implements Listener, CommandExecutor {
     public boolean onCommand(CommandSender s, Command cmd, String lbl, String[] args) {
         if (cmd.getName().equalsIgnoreCase("criarcaixa")) {
@@ -24,7 +26,6 @@ public class ComandoCriarCaixa implements Listener, CommandExecutor {
                 s.sendMessage("§cComando incorreto, use /criarcaixa <id>");
                 return false;
             }
-
 
             String caixa = args[0].toLowerCase();
             if (args[0].length() > 100) {
